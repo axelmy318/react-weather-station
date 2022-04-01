@@ -3,7 +3,11 @@ import WeatherSettings from '../../openweathermapDefaults'
 import WeatherAPI from '../../openweathermapAPI'
 import axios from 'axios'
 import './WeatherWidget.css'
-import { FiWind as LogoWind, RiTempColdLine as LogoTemp, IoWaterOutline as LogoHumidity, BsSpeedometer2 as LogoGauge } from 'react-icons/all'
+
+import { FiWind as LogoWind } from 'react-icons/fi'
+import { RiTempColdLine as LogoTemp } from 'react-icons/ri'
+import { MdOutlineWaterDrop as LogoHumidity } from 'react-icons/md'
+import { BsSpeedometer2 as LogoGauge } from 'react-icons/bs'
 
 import { IconContext } from 'react-icons/lib'
 
@@ -48,7 +52,26 @@ const WeatherWidget = ({ location, units, theme, color, moreDetails }) => {
     </>)
   }
   else {
-    return (<>Loading</>)
+    return (<>
+      <div className={`weather-station-main ${theme}`} style={{borderTopColor: colors[color]}}>
+        <p className={`weather-widget-location`}>loading</p>
+        <IconContext.Provider value={{color: colors[color]}}>
+          { !moreDetails && <>
+            <span className={`weather-widget-big`}><LogoTemp />loading</span>
+            <span className={`weather-widget-small`}><LogoWind />&nbsp;loading</span>
+          </>}
+          { moreDetails && <>
+            <span className={`weather-widget-big`}><LogoTemp />loading</span>
+            <span className={`weather-widget-small`}>loading</span>
+            <br />
+            <div style={{marginTop: '10px'}}></div>
+            <span className={`weather-widget-small margin-right`}><LogoWind />&nbsp;loading</span>
+            <span className={`weather-widget-small margin-right`}><LogoHumidity />&nbsp;loading</span>
+            <span className={`weather-widget-small`}><LogoGauge />&nbsp;loading</span>
+          </>}
+        </IconContext.Provider>
+      </div>
+    </>)
   }
 }
 
