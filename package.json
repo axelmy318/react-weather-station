@@ -1,6 +1,6 @@
 {
   "name": "react-weather-station",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A customizable react component that displays weather informations about a given city",
   "scripts": {
     "rollup": "rollup -c",
@@ -74,9 +74,10 @@
     "widgets"
   ],
   "dependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "axios": "^0.25.0",
     "chart.js": "^3.7.0",
-    "moment": "^2.29.1",
-    "react-chartjs-2": "^4.0.1"
+    "css-loader": "^5.2.7",
+    "moment": "^2.29.1"
   }
 }
