@@ -7,6 +7,9 @@ A customizable react component that displays weather informations about a given 
 ## Demo 👀
 [https://axelmy-projects-showcase.firebaseapp.com/react-weather-station](https://axelmy-projects-showcase.firebaseapp.com/react-weather-station)
 
+## Screenshots 
+![screenshots](https://i.imgur.com/O6KMXWf.png)
+
 ## Usage 💻
 
 ```javascript
