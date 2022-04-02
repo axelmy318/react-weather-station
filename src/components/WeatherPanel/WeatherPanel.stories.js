@@ -29,7 +29,7 @@ const ShowcaseTemplate = (args) => {
             <h1 style={{textAlign: 'center', fontFamily: 'Roboto'}}>{city}</h1>
 
             <WeatherPanel location={city}>
-                <div style={{display: 'inline-flex'}}>
+                  <div style={{display: 'inline-flex'}}>
                   <WeatherTemp />
                   <div style={{marginRight: '30px'}}></div>
                   <WeatherIcon />

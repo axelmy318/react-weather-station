@@ -54,22 +54,6 @@ const WeatherWidget = ({ location, units, theme, color, moreDetails }) => {
   else {
     return (<>
       <div className={`weather-station-main ${theme}`} style={{borderTopColor: getColor(color)}}>
-        <p className={`weather-widget-location`}>loading</p>
-        <IconContext.Provider value={{color: getColor(color)}}>
-          { !moreDetails && <>
-            <span className={`weather-widget-big`}><LogoTemp />loading</span>
-            <span className={`weather-widget-small`}><LogoWind />&nbsp;loading</span>
-          </>}
-          { moreDetails && <>
-            <span className={`weather-widget-big`}><LogoTemp />loading</span>
-            <span className={`weather-widget-small`}>loading</span>
-            <br />
-            <div style={{marginTop: '10px'}}></div>
-            <span className={`weather-widget-small margin-right`}><LogoWind />&nbsp;loading</span>
-            <span className={`weather-widget-small margin-right`}><LogoHumidity />&nbsp;loading</span>
-            <span className={`weather-widget-small`}><LogoGauge />&nbsp;loading</span>
-          </>}
-        </IconContext.Provider>
       </div>
     </>)
   }

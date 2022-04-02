@@ -1,8 +1,7 @@
 import { createContext } from 'react'
 
 const WeatherPanelContext = createContext({
-    weather: null,
-    setWeather: () => {}
+    weather: null
 })
 
 export default WeatherPanelContext
