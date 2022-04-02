@@ -3,6 +3,7 @@ import { WeatherTemp } from '.';
 import WeatherIcon from './WeatherIcon';
 
 import WeatherPanel from './WeatherPanel';
+import WeatherWind from './WeatherWind';
 
 export default {
   title: 'WeatherPanel/WeatherPanel',
@@ -32,6 +33,8 @@ const ShowcaseTemplate = (args) => {
                   <WeatherTemp />
                   <div style={{marginRight: '30px'}}></div>
                   <WeatherIcon />
+                  <div style={{marginRight: '30px'}}></div>
+                  <WeatherWind />
                 </div>
             </WeatherPanel>
         </>
