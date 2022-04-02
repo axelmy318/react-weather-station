@@ -4,11 +4,16 @@ A customizable react component that displays weather informations about a given 
 ## Installation
 `npm i react-weather-station`
 
-## Demo 👀
-[https://axelmy-projects-showcase.firebaseapp.com/react-weather-station](https://axelmy-projects-showcase.firebaseapp.com/react-weather-station)
+## Demo & examples 👀
+[https://axelmy-projects-showcase.firebaseapp.com/react-weather-station](https://axelmy-projects-showcase.firebaseapp.com/react-weather-station) (...with code 😉)
 
 ## Screenshots 
+Using the WeatherWidget component
 ![screenshots](https://i.imgur.com/O6KMXWf.png)
+
+Using the WeatherPanel provider
+![screenshotPanel](https://i.imgur.com/GzMzTPv.png)
+
 
 ## Usage 💻
 
