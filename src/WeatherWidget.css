@@ -18,13 +18,14 @@
 .weather-station-main.default {
     width: 400px;
     padding: 10px;
+    min-height: 100px;
     padding-bottom: 20px;
     border-top: 5px solid rgb(221, 221, 221);
     border-radius: 0px;
     box-shadow: 7px 9px 15px 1px rgba(0, 0, 0, 0.123);
 }
 
-.weather-station-main.default img {
+.weather-station-main.default .weather-widget-image {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -40,6 +41,37 @@
     margin-top: 15px;
     font-size: 130%;
     margin-right: 20px;
+}
+
+.weather-station-main.default .weather-widget-solo {
+    margin-top: 15px;
+    font-size: 400%;
+    margin-right: 20px;
+}
+
+.weather-station-main.default .weather-widget-solo .weahter-widget-solo-icon {
+    position: absolute;
+    font-size: 150%;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -40%);
+}
+
+.weather-station-main.default .weather-widget-solo .weahter-widget-solo-image {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -45%);
+}
+
+.weather-station-main.default .weather-widget-solo .weahter-widget-solo-text {
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    color: rgb(37, 37, 37);
+    transform: translate(-50%, -50%);
+    width: 60%;
+    text-align: center;
 }
 
 .weather-station-main.default .weather-widget-small.margin-right {

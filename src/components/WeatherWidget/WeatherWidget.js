@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import WeatherSettings from '../../openweathermapDefaults'
-import WeatherAPI from '../../openweathermapAPI'
-import axios from 'axios'
-import './WeatherWidget.css'
+import { LoadWeatherData } from '../..'
+import '../../WeatherWidget.css'
 
 import { FiWind as LogoWind } from 'react-icons/fi'
 import { RiTempColdLine as LogoTemp } from 'react-icons/ri'
@@ -10,6 +9,7 @@ import { MdOutlineWaterDrop as LogoHumidity } from 'react-icons/md'
 import { BsSpeedometer2 as LogoGauge } from 'react-icons/bs'
 
 import { IconContext } from 'react-icons/lib'
+import { getColor } from '../../colorHandler'
 
 const WeatherWidget = ({ location, units, theme, color, moreDetails }) => {
   WeatherSettings.units = units
@@ -30,10 +30,10 @@ const WeatherWidget = ({ location, units, theme, color, moreDetails }) => {
   
   if(weather) {
     return (<>
-      <div className={`weather-station-main ${theme}`} style={{borderTopColor: colors[color]}}>
+      <div className={`weather-station-main ${theme}`} style={{borderTopColor: getColor(color)}}>
         <p className={`weather-widget-location`}>{weather.name}</p>
-        <img src={`${WeatherSettings.imgUrl}${weather.weather[0].icon}@4x.png`} width={128} height={128} />
-        <IconContext.Provider value={{color: colors[color]}}>
+        <img className='weather-widget-image' src={`${WeatherSettings.imgUrl}${weather.weather[0].icon}@4x.png`} width={128} height={128} />
+        <IconContext.Provider value={{color: getColor(color)}}>
           { !moreDetails && <>
             <span className={`weather-widget-big`}><LogoTemp />{Math.round(weather.main.temp * 10) / 10}{units === 'metric' ? "°" : " F°"}</span>
             <span className={`weather-widget-small`}><LogoWind />&nbsp;{Math.round(weather.wind.speed * 10) / 10}{units === 'metric' ? 'km/h' : 'mph'}</span>
@@ -53,9 +53,9 @@ const WeatherWidget = ({ location, units, theme, color, moreDetails }) => {
   }
   else {
     return (<>
-      <div className={`weather-station-main ${theme}`} style={{borderTopColor: colors[color]}}>
+      <div className={`weather-station-main ${theme}`} style={{borderTopColor: getColor(color)}}>
         <p className={`weather-widget-location`}>loading</p>
-        <IconContext.Provider value={{color: colors[color]}}>
+        <IconContext.Provider value={{color: getColor(color)}}>
           { !moreDetails && <>
             <span className={`weather-widget-big`}><LogoTemp />loading</span>
             <span className={`weather-widget-small`}><LogoWind />&nbsp;loading</span>
@@ -82,26 +82,4 @@ WeatherWidget.defaultProps = {
   color: 'secondary'
 }
 
-const colors = {
-  primary: "blue",
-  secondary: "cyan",
-  danger: "red",
-  warning: "orange",
-  pink: "rgb(255, 0, 170)",
-  purple: "purple",
-  green: "lime",
-}
-
 export default WeatherWidget
-
-export const LoadWeatherData = async(location, units = WeatherSettings.units) => {
-  const url = `${WeatherSettings.dataUrl}weather?q=${location}&APPID=${WeatherAPI.api_key}&units=${WeatherSettings.units}`
-  
-  return await axios.get(url)
-      .then((response) =>  {
-          return {success: true, data: response.data}
-      })
-      .catch(error => {
-          return {success: false, data: null}
-      })
-}
