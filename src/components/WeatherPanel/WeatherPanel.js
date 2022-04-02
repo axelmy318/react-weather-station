@@ -21,8 +21,7 @@ const WeatherPanel = ({ location, units, children }) => {
     return (
         <div className='weather-panel'>
             <WeatherPanelContext.Provider value={{
-                weather,
-                setWeather
+                weather
             }}>
                 {children}
             </WeatherPanelContext.Provider>
